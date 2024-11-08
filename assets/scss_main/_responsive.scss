@@ -1,0 +1,20 @@
+/* Small devices (phones, 0px and up) */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+/* Medium devices (tablets, 600px and up) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+}
