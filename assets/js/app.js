@@ -1,10 +1,32 @@
+
+
+// map init
 document.addEventListener("DOMContentLoaded", function () {
+  mouseCursorInit();
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showNearestSalons, showError);
   } else {
     alert("Geolocation is not supported by this browser.");
   }
 });
+
+function mouseCursorInit() {
+  // mouse cursor init 
+  const cursor = document.querySelector('.circular-cursor');
+  const radius = 40;
+  let angle = 0;
+  document.addEventListener('mousemove', (e) => {
+    // Calculate circular path coordinates
+    const offsetX = radius * Math.cos(angle);
+    const offsetY = radius * Math.sin(angle);
+
+    // Set the position of the cursor element
+    cursor.style.transform = `translate(${e.pageX + offsetX}px, ${e.pageY + offsetY}px)`;
+
+    // Increment angle for continuous circular movement
+    angle += 0.1;
+  });
+}
 
 function showError(error) {
   switch (error.code) {
